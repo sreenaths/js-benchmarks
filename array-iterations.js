@@ -46,3 +46,12 @@ test("Reduce function", function () {
   }, []);
 
 });
+
+test("Some function", function () {
+
+  var arr = [];
+  SOURCE.some(function (val) {
+    arr.push(val);
+  });
+
+});
