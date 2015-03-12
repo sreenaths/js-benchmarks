@@ -55,3 +55,11 @@ test("Some function", function () {
   });
 
 });
+
+test("Some with this", function () {
+
+  SOURCE.some(function (val) {
+    this.push(val);
+  }, []);
+
+});
