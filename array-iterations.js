@@ -1,0 +1,48 @@
+
+/**
+ * Js Benchmarks
+ *
+ * Benchmarking for loop, map and reduce functions.
+ */
+
+function test(title, testFunction) {
+  var startTime = Date.now();
+  testFunction();
+  console.log(title, ":", Date.now() - startTime, "Milliseconds");
+  return '--- Test End ---';
+}
+
+var SOURCE = (function () {
+      var arr = [];
+      for(var i = 0; i < 100000; i++) {
+        arr.push(i);
+      }
+      return arr;
+    })();
+
+test("For loop", function () {
+
+  var arr = [];
+  for(var i = 0, length = SOURCE.length; i < length; i++) {
+    arr.push(SOURCE[i]);
+  }
+
+});
+
+test("Map function", function () {
+
+  var arr = [];
+  SOURCE.map(function (val) {
+    arr.push(val);
+  });
+
+});
+
+test("Reduce function", function () {
+
+  SOURCE.reduce(function (arr, val) {
+    arr.push(val);
+    return arr;
+  }, []);
+
+});
