@@ -6,9 +6,12 @@
  */
 
 function test(title, testFunction) {
-  var startTime = Date.now();
-  testFunction();
+  var startTime = Date.now(),
+      result = testFunction();
   console.log(title, ":", Date.now() - startTime, "Milliseconds");
+  if(result) {
+    console.log(result);
+  }
   return '--- Test End ---';
 }
 
@@ -61,5 +64,14 @@ test("Some with this", function () {
   SOURCE.some(function (val) {
     this.push(val);
   }, []);
+
+});
+
+test("For Each function", function () {
+
+  var arr = [];
+  SOURCE.forEach(function (val) {
+    arr.push(val);
+  });
 
 });

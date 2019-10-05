@@ -6,9 +6,12 @@
  */
 
 function test(title, testFunction) {
-  var startTime = Date.now();
-  testFunction();
+  var startTime = Date.now(),
+      result = testFunction();
   console.log(title, ":", Date.now() - startTime, "Milliseconds");
+  if(result) {
+    console.log(result);
+  }
   return '--- Test End ---';
 }
 
